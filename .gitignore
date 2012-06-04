@@ -5,3 +5,5 @@ Makefile
 cmake_install.cmake
 triangulate
 generate_random_points
+CMakeLists.txt.bak
+random_xmonotone_points
