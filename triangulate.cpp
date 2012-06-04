@@ -5,6 +5,10 @@
 
 typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
 
+///////////////////////////////////////////////////////////////////////////////
+// CGAL Documentation for Triangulation_2:
+// http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Triangulation_2_ref/Class_Triangulation_2.html
+///////////////////////////////////////////////////////////////////////////////
 typedef CGAL::Triangulation_2<K>             Triangulation;
 typedef Triangulation::Point                 Point;
 typedef Triangulation::Segment               Segment;

@@ -1,6 +1,10 @@
 #include <iostream>
-#include <CGAL/Random.h>
 
+///////////////////////////////////////////////////////////////////////////////
+// CGAL Documentation for random:
+// http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Generator_ref/Class_Random.html
+///////////////////////////////////////////////////////////////////////////////
+#include <CGAL/Random.h>
 typedef CGAL::Random Random;
 
 using namespace std;
