@@ -18,10 +18,15 @@ testing the point location algorithms.
 
   3. make
 
-  To make this easy, I've included build.sh which will run these as
-  appropriate.
+  To make this easy, build.sh will run these as appropriate and
+  rebuild.sh will force a rebuild of the makefile (useful for adding
+  new things to build).
 
 * Programs
+
+  - generate_random_points
+
+    Prints an arbitrary number of random points.  Uses Boost's random.
 
   - triangulate
 
