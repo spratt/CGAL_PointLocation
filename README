@@ -9,11 +9,14 @@ testing the point location algorithms.
   - CGAL
 
 * Build
-  
-  1. Run
-     cmake .
 
-  2. make
+  Run the following commands in the project directory
+  
+  1. cgal_create_cmake_script
+
+  2. cmake .
+
+  3. make
 
 * Programs
 
