@@ -4,3 +4,4 @@ CMakeLists.txt
 Makefile
 cmake_install.cmake
 triangulate
+generate_random_points

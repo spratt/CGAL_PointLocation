@@ -15,12 +15,13 @@ using namespace std;
 int main(int argc, char** argv) {
   istream_iterator<Point> begin(cin);
   istream_iterator<Point> end;
-  
+
+  // Create the triangulation
   Triangulation t;
   t.insert(begin, end);
 
+  // print the segments
   Edges_iterator iter = t.finite_edges_begin();
-
   while(iter != t.finite_edges_end()) {
     cout << t.segment(iter) << endl;
     ++iter;
