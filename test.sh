@@ -14,5 +14,5 @@ if [ -f "triangulate" -a -f "triangulate_input" ]; then
 fi
 
 if [ -f "random_xmonotone_points" -a -f "triangulate" ]; then
-    ./random_xmonotone_points 100 0 100000 | ./triangulate
+    ./random_triangulation.sh 100 0 100000
 fi

@@ -37,3 +37,7 @@ testing the point location algorithms.
 
     Reads an x-monotone pointset from standard input, and prints a
     triangulation of those points.
+
+  - random_triangulation.sh
+
+    Generates a triangulation on an arbitrary number of points.
