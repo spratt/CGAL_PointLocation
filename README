@@ -18,6 +18,9 @@ testing the point location algorithms.
 
   3. make
 
+  To make this easy, I've included build.sh which will run these as
+  appropriate.
+
 * Programs
 
   - triangulate
