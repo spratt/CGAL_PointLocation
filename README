@@ -28,6 +28,11 @@ testing the point location algorithms.
 
     Prints an arbitrary number of random points.  Uses Boost's random.
 
+  - random_xmonotone_points
+
+    Same as above, but the output is x-monotone increasing (useful for
+    input to triangulate).
+
   - triangulate
 
     Reads an x-monotone pointset from standard input, and prints a
