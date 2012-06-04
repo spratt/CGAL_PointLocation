@@ -1,0 +1,23 @@
+CGAL Point Location
+======================================================================
+This is a collection of programs built with CGAL for the purpose of
+testing the point location algorithms.
+
+* Requirements
+
+  - cmake
+  - CGAL
+
+* Build
+  
+  1. Run
+     cmake .
+
+  2. make
+
+* Programs
+
+  - triangulate
+
+    Reads an x-monotone pointset from standard input, and prints a
+    triangulation of those points.
