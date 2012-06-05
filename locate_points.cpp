@@ -108,10 +108,10 @@ int main(int argc, char** argv) {
       }
     } else if(const Halfedge_const_handle * halfedge_handle =
 	      object_cast<Halfedge_const_handle>(&o)) {
-      cout << "halfedge" << endl;
+      cout << "Halfedge" << endl;
     } else if(const Vertex_const_handle * vertex_handle =
 	      object_cast<Vertex_const_handle>(&o)) {
-      cout << "vertex" << endl;
+      cout << "Vertex" << endl;
     } else {
       cout << "Error: unknown point location result" << endl;
       return 1;
