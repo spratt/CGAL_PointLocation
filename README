@@ -3,6 +3,10 @@ CGAL Point Location
 This is a collection of programs built with CGAL for the purpose of
 testing the point location algorithms.
 
+* License
+
+  See LICENSE file.
+
 * Requirements
 
   - cmake
@@ -24,11 +28,12 @@ testing the point location algorithms.
 
 * Programs
 
-  - generate_random_points
+  - generate_random_points [n] [lower] [upper]
 
-    Prints an arbitrary number of random points.  Uses Boost's random.
+    Prints n random points between lower (inclusive) and upper (not
+    inclusive).  Uses Boost's random.
 
-  - random_xmonotone_points
+  - random_xmonotone_points [n] [lower] [upper]
 
     Same as above, but the output is x-monotone increasing (useful for
     input to triangulate).
@@ -38,6 +43,13 @@ testing the point location algorithms.
     Reads an x-monotone pointset from standard input, and prints a
     triangulation of those points.
 
-  - random_triangulation.sh
+  - random_triangulation.sh [n] [lower] [upper]
 
-    Generates a triangulation on an arbitrary number of points.
+    Generates a triangulation on n points between lower (inclusive)
+    and upper (not inclusive).
+
+  - point_location [segments file] [points file]
+
+    Builds a planar subdivision using the given segments, then runs a
+    query on the given points, printing the connected component
+    boundary in counter-clockwise direction.

@@ -35,9 +35,14 @@ typedef CGAL::Arrangement_2<Traits_2>      Arrangement_2;
 // http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Arrangement_on_surface_2_ref/Concept_ArrangementPointLocation_2.html
 ///////////////////////////////////////////////////////////////////////////////
 typedef CGAL::Arr_trapezoid_ric_point_location<Arrangement_2> PointLocation_2;
+typedef Arrangement_2::Face_handle Face_handle;
+typedef Arrangement_2::Halfedge_handle Halfedge_handle;
+typedef Arrangement_2::Vertex_handle Vertex_handle;
 typedef Arrangement_2::Face_const_handle Face_const_handle;
 typedef Arrangement_2::Halfedge_const_handle Halfedge_const_handle;
 typedef Arrangement_2::Vertex_const_handle Vertex_const_handle;
+
+typedef Arrangement_2::Ccb_halfedge_circulator Halfedge_circulator;
 
 using namespace std;
 
@@ -84,8 +89,21 @@ int main(int argc, char** argv) {
     ++point_begin;
 
     // determine what type is stored in the object
-    if(const Face_const_handle * face_handle = object_cast<Face_const_handle>(&o)) {
-      cout << "face" << endl;
+    if(const Face_const_handle * face_handle_c = object_cast<Face_const_handle>(&o)) {
+      Face_handle face_handle = arr.non_const_handle(*face_handle_c);
+      if(face_handle->has_outer_ccb()) {
+	Halfedge_circulator hc = face_handle->outer_ccb();
+	Halfedge_circulator first = hc;
+	cout << "Face: ";
+	do {
+	  cout << "("
+	       << hc->source()->point()
+	       << " "
+	       << hc->target()->point()
+	       << ") ";
+	} while(++hc != first);
+	cout << endl;
+      }
     } else if(const Halfedge_const_handle * halfedge_handle =
 	      object_cast<Halfedge_const_handle>(&o)) {
       cout << "halfedge" << endl;
