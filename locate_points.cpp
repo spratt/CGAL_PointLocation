@@ -2,18 +2,18 @@
 #include <fstream>
 
 #include <CGAL/Exact_predicates_exact_constructions_kernel.h>
-// #include <CGAL/Cartesian.h>
-// #include <CGAL/MP_Float.h>
-// #include <CGAL/Quotient.h>
 #include <CGAL/Arr_segment_traits_2.h>
 #include <CGAL/Arrangement_2.h>
 
-// typedef CGAL::Quotient<CGAL::MP_Float>     Number_type;
-//typedef CGAL::Cartesian<Number_type>       Kernel;
 typedef CGAL::Exact_predicates_exact_constructions_kernel Kernel;
 typedef CGAL::Arr_segment_traits_2<Kernel> Traits_2;
 typedef Traits_2::Point_2                  Point_2;
 typedef Traits_2::X_monotone_curve_2       Segment_2;
+
+///////////////////////////////////////////////////////////////////////////////
+// CGAL Doc for Arrangement_2:
+// http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Arrangement_on_surface_2_ref/Class_Arrangement_2.html#Cross_link_anchor_1186
+///////////////////////////////////////////////////////////////////////////////
 typedef CGAL::Arrangement_2<Traits_2>      Arrangement_2;
 
 using namespace std;
@@ -42,14 +42,13 @@ int main(int argc, char** argv) {
   /////////////////////////////////////////////////////////////////////////////
 
   // read in the segments
-  //CGAL::insert(arr, segment_begin, segment_end);
   while(segment_begin != segment_end) {
     CGAL::insert(arr, *segment_begin);
     ++segment_begin;
   }
 
   // locate and print the containing polygon for each point
-  
+  // TODO
   
   return 0;
 }
