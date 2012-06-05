@@ -7,3 +7,6 @@ triangulate
 generate_random_points
 CMakeLists.txt.bak
 random_xmonotone_points
+locate_points
+points.txt
+segments.txt
