@@ -90,11 +90,11 @@ int main(int argc, char** argv) {
 
     // determine what type is stored in the object
     if(const Face_const_handle * face_handle_c = object_cast<Face_const_handle>(&o)) {
+      cout << "Face: ";
       Face_handle face_handle = arr.non_const_handle(*face_handle_c);
       if(face_handle->has_outer_ccb()) {
 	Halfedge_circulator hc = face_handle->outer_ccb();
 	Halfedge_circulator first = hc;
-	cout << "Face: ";
 	do {
 	  cout << "("
 	       << hc->source()->point()
@@ -103,6 +103,8 @@ int main(int argc, char** argv) {
 	       << ") ";
 	} while(++hc != first);
 	cout << endl;
+      } else {
+	cout << "outer" << endl;
       }
     } else if(const Halfedge_const_handle * halfedge_handle =
 	      object_cast<Halfedge_const_handle>(&o)) {
@@ -110,6 +112,9 @@ int main(int argc, char** argv) {
     } else if(const Vertex_const_handle * vertex_handle =
 	      object_cast<Vertex_const_handle>(&o)) {
       cout << "vertex" << endl;
+    } else {
+      cout << "Error: unknown point location result" << endl;
+      return 1;
     }
   }
   
