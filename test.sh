@@ -13,17 +13,16 @@ echo "======================================================================"
 
 TIMED=false
 SHOWN=false
-if [ $# -eq 1 ]; then
+REBUILD=false
+if [ $# -eq 0 ]; then
     TIMED=true
-elif [ $# -gt 1 ]; then
-    SHOWN=true
+elif [ $# -eq 1 ]; then
+    HIDE=true
+elif [ $# -eq 2 ]; then
+    REBUILD=true
 fi
 
-if $TIMED; then
-    time ./locate_points segments.txt points.txt > /dev/null
-elif $SHOWN; then
-    time ./locate_points segments.txt points.txt
-else
+if $REBUILD; then
     if [ -f "random_xmonotone_points" -a -f "triangulate" ]; then
 	if [ -f "locate_points" -a -f "generate_random_points" ]; then
 	    echo "Generating triangulation..."
@@ -31,7 +30,15 @@ else
 	    echo "Generating points..."
 	    ./generate_random_points 5000 -200000 200000 > points.txt
 	    echo "Point location..."
-	    ./locate_points segments.txt points.txt
 	fi
     fi
+fi
+    
+
+if $TIMED; then
+    time ./locate_points segments.txt points.txt
+elif $HIDE; then
+    time ./locate_points segments.txt points.txt > /dev/null
+else
+    ./locate_points segments.txt points.txt
 fi

@@ -86,6 +86,7 @@ int main(int argc, char** argv) {
   // locate and print the containing polygon for each point
   while(point_begin != point_end) {
     Object o = pl.locate(*point_begin);
+    cout << "Point " << *point_begin << ": ";
     ++point_begin;
 
     // determine what type is stored in the object
