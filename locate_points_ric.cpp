@@ -33,6 +33,7 @@ typedef CGAL::Arrangement_2<Traits_2>      Arrangement_2;
 ///////////////////////////////////////////////////////////////////////////////
 // CGAL doc for ArrrangementPointLocation_2:
 // http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Arrangement_on_surface_2_ref/Concept_ArrangementPointLocation_2.html
+// http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Arrangement_on_surface_2_ref/Class_Arr_trapezoid_ric_point_location.html#Cross_link_anchor_1273
 ///////////////////////////////////////////////////////////////////////////////
 typedef CGAL::Arr_trapezoid_ric_point_location<Arrangement_2> PointLocation_2;
 typedef Arrangement_2::Face_handle Face_handle;

@@ -4,8 +4,9 @@
 #include <CGAL/Object.h>
 #include <CGAL/Exact_predicates_exact_constructions_kernel.h>
 #include <CGAL/Arr_segment_traits_2.h>
+#include <CGAL/Arr_point_location/Arr_lm_random_generator.h>
 #include <CGAL/Arrangement_2.h>
-#include <CGAL/Arr_naive_point_location.h>
+#include <CGAL/Arr_landmarks_point_location.h>
 
 ///////////////////////////////////////////////////////////////////////////////
 // CGAL doc for Object:
@@ -33,9 +34,10 @@ typedef CGAL::Arrangement_2<Traits_2>      Arrangement_2;
 ///////////////////////////////////////////////////////////////////////////////
 // CGAL doc for ArrrangementPointLocation_2:
 // http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Arrangement_on_surface_2_ref/Concept_ArrangementPointLocation_2.html
-// http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Arrangement_on_surface_2_ref/Class_Arr_naive_point_location.html#Cross_link_anchor_1271
+// http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Arrangement_on_surface_2_ref/Class_Arr_landmarks_point_location.html
 ///////////////////////////////////////////////////////////////////////////////
-typedef CGAL::Arr_naive_point_location<Arrangement_2> PointLocation_2;
+typedef CGAL::Arr_random_landmarks_generator<Arrangement_2> Generator;
+typedef CGAL::Arr_landmarks_point_location<Arrangement_2,Generator> PointLocation_2;
 typedef Arrangement_2::Face_handle Face_handle;
 typedef Arrangement_2::Halfedge_handle Halfedge_handle;
 typedef Arrangement_2::Vertex_handle Vertex_handle;

@@ -56,6 +56,21 @@ else
     ./locate_points_ric segments.txt points.txt
 fi
 
+# landmarks
+echo "======================================================================"
+echo "| Point Location using a KD tree on random landmarks                 |"
+echo "======================================================================"
+
+if $TIMED; then
+    time ./locate_points_landmarks segments.txt points.txt
+elif $HIDE; then
+    time ./locate_points_landmarks segments.txt points.txt > landmarks.txt
+else
+    ./locate_points_landmarks segments.txt points.txt
+fi
+
+# comparison
 if $HIDE; then
     diff naive.txt ric.txt
+    diff naive.txt landmarks.txt
 fi

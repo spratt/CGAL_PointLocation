@@ -14,3 +14,5 @@ naive.txt
 ric.txt
 locate_points_naive
 locate_points_ric
+landmarks.txt
+locate_points_landmarks
