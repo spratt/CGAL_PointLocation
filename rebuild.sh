@@ -1,4 +1,4 @@
 #!/bin/bash
-cgal_create_cmake_script
+~/local/bin/cgal_create_cmake_script
 cmake .
 make

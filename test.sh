@@ -6,13 +6,9 @@ if [ $? -ne 0 ]; then
     exit
 fi
 
-# otherwise, run test
-echo "======================================================================"
-echo "| Point Location Test                                                |"
-echo "======================================================================"
-
+# options
 TIMED=false
-SHOWN=false
+HIDE=false
 REBUILD=false
 if [ $# -eq 0 ]; then
     TIMED=true
@@ -24,7 +20,7 @@ fi
 
 if $REBUILD; then
     if [ -f "random_xmonotone_points" -a -f "triangulate" ]; then
-	if [ -f "locate_points" -a -f "generate_random_points" ]; then
+	if [ -f "locate_points_ric" -a -f "generate_random_points" ]; then
 	    echo "Generating triangulation..."
 	    ./random_triangulation.sh 5000 -100000 100000 > segments.txt
 	    echo "Generating points..."
@@ -33,12 +29,33 @@ if $REBUILD; then
 	fi
     fi
 fi
-    
+
+# naive
+echo "======================================================================"
+echo "| Naive Point Location                                               |"
+echo "======================================================================"
 
 if $TIMED; then
-    time ./locate_points segments.txt points.txt
+    time ./locate_points_naive segments.txt points.txt
 elif $HIDE; then
-    time ./locate_points segments.txt points.txt > /dev/null
+    time ./locate_points_naive segments.txt points.txt > naive.txt
 else
-    ./locate_points segments.txt points.txt
+    ./locate_points_naive segments.txt points.txt
+fi
+
+# ric
+echo "======================================================================"
+echo "| Point Location using Randomized Incremental Trapezoid Maps         |"
+echo "======================================================================"
+
+if $TIMED; then
+    time ./locate_points_ric segments.txt points.txt
+elif $HIDE; then
+    time ./locate_points_ric segments.txt points.txt > ric.txt
+else
+    ./locate_points_ric segments.txt points.txt
+fi
+
+if $HIDE; then
+    diff naive.txt ric.txt
 fi

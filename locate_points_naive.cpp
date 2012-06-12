@@ -5,7 +5,7 @@
 #include <CGAL/Exact_predicates_exact_constructions_kernel.h>
 #include <CGAL/Arr_segment_traits_2.h>
 #include <CGAL/Arrangement_2.h>
-#include <CGAL/Arr_trapezoid_ric_point_location.h>
+#include <CGAL/Arr_naive_point_location.h>
 
 ///////////////////////////////////////////////////////////////////////////////
 // CGAL doc for Object:
@@ -34,7 +34,7 @@ typedef CGAL::Arrangement_2<Traits_2>      Arrangement_2;
 // CGAL doc for ArrrangementPointLocation_2:
 // http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Arrangement_on_surface_2_ref/Concept_ArrangementPointLocation_2.html
 ///////////////////////////////////////////////////////////////////////////////
-typedef CGAL::Arr_trapezoid_ric_point_location<Arrangement_2> PointLocation_2;
+typedef CGAL::Arr_naive_point_location<Arrangement_2> PointLocation_2;
 typedef Arrangement_2::Face_handle Face_handle;
 typedef Arrangement_2::Halfedge_handle Halfedge_handle;
 typedef Arrangement_2::Vertex_handle Vertex_handle;
@@ -86,12 +86,11 @@ int main(int argc, char** argv) {
   // locate and print the containing polygon for each point
   while(point_begin != point_end) {
     Object o = pl.locate(*point_begin);
-    cout << "Point " << *point_begin << ": ";
+    cout << "(" << *point_begin << "): ";
     ++point_begin;
 
     // determine what type is stored in the object
     if(const Face_const_handle * face_handle_c = object_cast<Face_const_handle>(&o)) {
-      cout << "Face: ";
       Face_handle face_handle = arr.non_const_handle(*face_handle_c);
       if(face_handle->has_outer_ccb()) {
 	Halfedge_circulator hc = face_handle->outer_ccb();

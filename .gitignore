@@ -10,3 +10,7 @@ random_xmonotone_points
 locate_points
 points.txt
 segments.txt
+naive.txt
+ric.txt
+locate_points_naive
+locate_points_ric
