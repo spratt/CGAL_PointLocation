@@ -31,29 +31,19 @@ if $REBUILD; then
 fi
 
 # naive
-echo "======================================================================"
-echo "| Naive Point Location                                               |"
-echo "======================================================================"
-
-if $TIMED; then
-    time ./locate_points_naive segments.txt points.txt
-elif $HIDE; then
+if $HIDE; then
+    echo "======================================================================"
+    echo "| Naive Point Location                                               |"
+    echo "======================================================================"
     time ./locate_points_naive segments.txt points.txt > naive.txt
-else
-    ./locate_points_naive segments.txt points.txt
 fi
 
 # ric
-echo "======================================================================"
-echo "| Point Location using Randomized Incremental Trapezoid Maps         |"
-echo "======================================================================"
-
-if $TIMED; then
-    time ./locate_points_ric segments.txt points.txt
-elif $HIDE; then
+if $HIDE; then
+    echo "======================================================================"
+    echo "| Point Location using Randomized Incremental Trapezoid Maps         |"
+    echo "======================================================================"
     time ./locate_points_ric segments.txt points.txt > ric.txt
-else
-    ./locate_points_ric segments.txt points.txt
 fi
 
 # landmarks

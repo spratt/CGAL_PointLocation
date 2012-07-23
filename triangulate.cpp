@@ -1,9 +1,11 @@
 #include <fstream>
 
-#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
+#include <CGAL/Cartesian.h>
+#include <CGAL/Quotient.h>
 #include <CGAL/Triangulation_2.h>
 
-typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
+typedef CGAL::Quotient<int> Rational;
+typedef CGAL::Cartesian<Rational> K;
 
 ///////////////////////////////////////////////////////////////////////////////
 // CGAL Documentation for Triangulation_2:

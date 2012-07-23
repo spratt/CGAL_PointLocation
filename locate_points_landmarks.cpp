@@ -111,7 +111,11 @@ int main(int argc, char** argv) {
       }
     } else if(const Halfedge_const_handle * halfedge_handle =
 	      object_cast<Halfedge_const_handle>(&o)) {
-      cout << "Halfedge" << endl;
+      cout << "Edge: ("
+	   << (*halfedge_handle)->source()->point()
+	   << " "
+	   << (*halfedge_handle)->target()->point()
+	   << ")" << endl;
     } else if(const Vertex_const_handle * vertex_handle =
 	      object_cast<Vertex_const_handle>(&o)) {
       cout << "Vertex" << endl;
