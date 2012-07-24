@@ -2,7 +2,8 @@
 #include <fstream>
 
 #include <CGAL/Object.h>
-#include <CGAL/Exact_predicates_exact_constructions_kernel.h>
+#include <CGAL/Cartesian.h>
+#include <CGAL/Quotient.h>
 #include <CGAL/Arr_segment_traits_2.h>
 #include <CGAL/Arr_point_location/Arr_lm_random_generator.h>
 #include <CGAL/Arrangement_2.h>
@@ -20,7 +21,8 @@ using CGAL::object_cast;
 // http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Kernel_23_ref/Concept_Kernel.html#Cross_link_anchor_318
 ///////////////////////////////////////////////////////////////////////////////
 
-typedef CGAL::Exact_predicates_exact_constructions_kernel Kernel;
+typedef CGAL::Quotient<int> Rational;
+typedef CGAL::Cartesian<Rational> Kernel;
 
 ///////////////////////////////////////////////////////////////////////////////
 // CGAL Doc for Arrangement_2:

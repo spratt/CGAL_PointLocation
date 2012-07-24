@@ -9,11 +9,11 @@ fi
 # options
 if [ -f "random_xmonotone_points" -a -f "triangulate" ]; then
     if [ -f "locate_points_ric" -a -f "generate_random_points" ]; then
-	echo "Generating triangulation..."
-	./random_triangulation.sh 20 -10 10 > segments.txt
-	echo "Generating points..."
-	./generate_random_points 20 -12 12 > points.txt
-	echo "Point location..."
+		echo "Generating triangulation..."
+		./random_triangulation.sh 20 -10 10 > segments.txt
+		echo "Generating points..."
+		./generate_random_points 20 -12 12 > points.txt
+		echo "Point location..."
     fi
 fi
 
